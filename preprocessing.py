@@ -24,27 +24,3 @@ print(df.describe())
 print("\nMissing Values:")
 print(df.isnull().sum())
 
-#  Step 4: Exploratory Data Analysis (EDA)
-
-# Distribution of target variable
-sns.countplot(x="Flood Occurred", data=df)
-plt.title("Flood Occurrence Distribution")
-plt.show()
-
-# Correlation heatmap (numeric features only)
-plt.figure(figsize=(10,6))
-sns.heatmap(df.select_dtypes(include=["int64", "float64"]).corr(), 
-            annot=True, cmap="coolwarm")
-plt.title("Correlation Heatmap (Numeric Features Only)")
-plt.show()
-
-
-# Rainfall vs Flood Occurrence
-sns.boxplot(x="Flood Occurred", y="Rainfall (mm)", data=df)
-plt.title("Rainfall vs Flood Occurrence")
-plt.show()
-
-# Population Density vs Flood Occurrence
-sns.boxplot(x="Flood Occurred", y="Population Density", data=df)
-plt.title("Population Density vs Flood Occurrence")
-plt.show()
